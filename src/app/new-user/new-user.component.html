@@ -1,0 +1,74 @@
+
+<div class="container mt-4">
+  <h2>Add User</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <!-- Username -->
+    <div class="mb-3">
+      <label for="username" class="form-label">Username:</label>
+      <input type="text" id="username" class="form-control" formControlName="username" required>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password:</label>
+      <input type="password" id="password" class="form-control" formControlName="password" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Permission</label>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="image"
+          value="2"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="read"
+        />
+        <label class="form-check-label">Read</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="image"
+          value="1"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="write"
+        />
+        <label class="form-check-label">Write</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="abstract"
+          value="3"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="update"
+        />
+        <label class="form-check-label">Update</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="categories"
+          value="4"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="deleteP"
+        />
+        <label class="form-check-label">Delete</label>
+      </div>
+
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Add User</button>
+    </div>
+  </form>
+</div>
